@@ -5,7 +5,6 @@ import Currentweather from './sections/display_weather/display_weather';
 import { WEATHER_API_URL, WEATHER_API_KEY } from "./sections/api";
 
 
-// This is a test
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const handleOnSearchChange = (searchData) =>{
