@@ -1,17 +1,17 @@
 import './App.css';
 import { useState } from "react";
-import Search from './sections/search_city/search_city';
-import Currentweather from './sections/display_weather/display_weather';
-import { WEATHER_API_URL, WEATHER_API_KEY } from "./sections/api";
+import SearchCity from './sections/search_city/search_city';
+import DisplayWeather from './sections/display_weather/display_weather';
+import { OPEN_WEATHER_API_URL, OPEN_WEATHER_API_KEY } from "./sections/api";
 
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
-  const handleOnSearchChange = (searchData) =>{
+  const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
 
     const currentWeatherFetch = fetch(
-      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+      `${OPEN_WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
     );
 
     Promise.all([currentWeatherFetch])
@@ -23,9 +23,12 @@ function App() {
 
   }
   return (
-    <div className="Container">
-      <Search onSearchChange={handleOnSearchChange}/>
-      {currentWeather && < Currentweather data={currentWeather} />}
+    <div>
+      <div className="title">Weather App</div>
+      <div className="Display_blocks">
+        <SearchCity onSearchChange={handleOnSearchChange} />
+        {currentWeather && < DisplayWeather data={currentWeather} />}
+      </div>
     </div>
   );
 }
