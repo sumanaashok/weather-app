@@ -1,7 +1,8 @@
+// The Weather display component of the weather app
 import React from "react";
 import "./display_weather.css"
 
-
+// Populating only the required weather info into the display box 
 const DisplayWeather = ({ data }) => {
     return (
         <div className="weather">

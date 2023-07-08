@@ -6,7 +6,9 @@ export const geoDBOptions = {
   },
 };
 
+// Rapid api url to fetch city information
 export const GEODB_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
 
+// using Open weather map url to fetch weather data 
 export const OPEN_WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
 export const OPEN_WEATHER_API_KEY = process.env.REACT_APP_open_weather_api;

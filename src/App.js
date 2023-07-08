@@ -9,7 +9,7 @@ function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
-
+    // fetching weather data from open weather api using lat and lon of the city
     const currentWeatherFetch = fetch(
       `${OPEN_WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${OPEN_WEATHER_API_KEY}&units=metric`
     );

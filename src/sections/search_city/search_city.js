@@ -1,3 +1,5 @@
+// The search city component of the weather app
+
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoDBOptions, GEODB_API_URL } from "../api"
@@ -7,6 +9,7 @@ const SearchCity = ({ onSearchChange }) => {
 
     const loadOptions = (inputValue) => {
         return fetch(
+            // fetching data from rapid api for cities with population os 100000 and above
             `${GEODB_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
             geoDBOptions
         )
@@ -29,6 +32,7 @@ const SearchCity = ({ onSearchChange }) => {
 
     };
 
+    // Using Aysync Paginate to load options into the search box
     return (
         <AsyncPaginate
             placeholder="Search for City"
